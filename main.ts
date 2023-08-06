@@ -1,6 +1,5 @@
 'use strict';
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
-// 代码块只需要记录行号
 
 
 var editor;
@@ -78,7 +77,6 @@ export default class MyPlugin extends Plugin {
 			this.getEditorInfo();
 			if (e.key == "Tab") {
 				if (this.inCodeBlock()) {
-					// console.log('制表符运作');
 					select2LineHome = select2LineHome.replace(/(    |\t)/,"");
 					entireDoc.replaceRange(select2LineHome+"	", {line: currentLineNoLoc, ch: 0}, currentCursorLoc);
 				}
